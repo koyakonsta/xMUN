@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     window = QtWidgets.QWidget()
 
-    window.setFocus(); window.setWindowTitle("BHMUN Debate Manager 0.9.9"); window.setGeometry(0,0,1920, 1080)
+    window.setFocus(); window.setWindowTitle("xMUN Debate Manager 0.9.9"); window.setGeometry(0,0,1920, 1080)
 
     Logo = QtWidgets.QLabel() #Labels beside editable committee names and topic, and 'present'
     CommitteeName, Topic = [QtWidgets.QLineEdit() for i in [...]*2] #editable invisible fields
