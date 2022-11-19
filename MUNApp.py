@@ -101,7 +101,6 @@ class proceduralVoting(QtWidgets.QWidget):
         def timeChanged(self, event):
             self.timelimit=self.speakermSpinbox.value()*60 + self.speakersSpinbox.value()
             self.speakerProgress.setMaximum(self.timelimit)
-            # print('q')
         def updateDGL(self, event):
             self.votingcombo.clear()
             self.votingcombo.addItems(self.dgListObj.delegateList)
@@ -121,7 +120,6 @@ class proceduralVoting(QtWidgets.QWidget):
             self.countryFlag.setPixmap(p)
         def timer_tick(self):
             if (self.timeelapsed < self.timelimit):
-                # threading.Timer(1, self.run).start()
                 if self.on:
                     self.timeelapsed+=1
                     self.setprogress(self.timeelapsed)
@@ -138,8 +136,6 @@ class proceduralVoting(QtWidgets.QWidget):
             self.countryName.setText('')
             self.countryFlag.setPixmap(QtGui.QPixmap(r'flags\ZZ.png'))
             self.on=False
-            # print('stopped')
-
 
 class caucusBase(QtWidgets.QWidget):
     def __init__(self, mode : bool, dgListObj):
@@ -232,7 +228,6 @@ class caucusBase(QtWidgets.QWidget):
     def caucustimeChanged(self, event):
         self.caucustimelimit = self.durationhSpinbox.value()*3600+self.durationmSpinbox.value()*60+self.durationsSpinbox.value()
         self.caucusProgress.setMaximum(self.caucustimelimit)
-        # print('sdfsdfsdfsdf')
     def speakertimeChanged(self, event):
         self.speakertimelimit = self.speakermSpinbox.value()*60+self.speakersSpinbox.value()
         self.speakerProgress.setMaximum(self.speakertimelimit)
@@ -263,7 +258,6 @@ class caucusBase(QtWidgets.QWidget):
 
     def caucus_timer_tick(self):
         if (self.caucustimeelapsed < self.caucustimelimit):
-            #threading.Timer(1, self.run).start()
             if self.on:
                 self.caucustimeelapsed+=1
                 self.setcaucusprogress(self.caucustimeelapsed)
@@ -272,7 +266,6 @@ class caucusBase(QtWidgets.QWidget):
             self.caucusProgress.setValue(0)
     def speaker_timer_tick(self):
         if (self.speakertimeelapsed < self.speakertimelimit):
-            #threading.Timer(1, self.run).start()
             if self.on:
                 self.speakertimeelapsed+=1
                 self.setspeakerprogress(self.speakertimeelapsed)
@@ -302,8 +295,6 @@ class caucusBase(QtWidgets.QWidget):
         self.countryName.setText('')
         self.countryFlag.setPixmap(QtGui.QPixmap(r'flags\ZZ.png'))
         self.on = False
-        # print('stopped')
-
 
 class generalSpeakersList(QtWidgets.QWidget):
     def __init__(self, dgListObj):
@@ -375,7 +366,6 @@ class generalSpeakersList(QtWidgets.QWidget):
     def timeChanged(self, event):
         self.timelimit = self.hSpinbox.value()*60+self.sSpinbox.value()
         self.progressBar.setMaximum(self.timelimit)
-        # print('q')
     def pauseTimer(self): self.on = False
     def resumeTimer(self): self.on = True
     def startTimer(self, event):
@@ -396,7 +386,6 @@ class generalSpeakersList(QtWidgets.QWidget):
     def continueTimer(self): ...
     def timer_tick(self):
         if (self.timeelapsed < self.timelimit):
-            #threading.Timer(1, self.run).start()
             if self.on:
                 self.timeelapsed+=1
                 self.setprogress(self.timeelapsed)
@@ -411,11 +400,6 @@ class generalSpeakersList(QtWidgets.QWidget):
         self.countryName.setText('')
         self.countryFlag.setPixmap(QtGui.QPixmap(r'flags\ZZ.png'))
         self.on = False
-        # print('stopped')
-
-
-
-
 
 class lLabel(QtWidgets.QLabel):  # dynamic editable label class, using proxy invisible qlineedit for entry
     def __init__(self, lEditName, LabelText,Heading):  # pass in associated lineedit to connect with, previous session text and intended lLabel Heading
@@ -443,9 +427,7 @@ class PresentLabel(QtWidgets.QLabel): #dynamically updating present label
     def updateRatio(self):
         self.numDelegates=len(self.dgListObj.delegateList)
         self.numPresent=self.rollCallObj.votes.count('P') + self.rollCallObj.votes.count('PV')
-#         #print('updateRatio called')
         self.setText(self.header +'\n{}/{}</h1><h2>(1/2 = {}; 2/3={})'.format(self.numPresent, self.numDelegates, round(self.numPresent/2),round(2*self.numPresent/3)))
-
 
 class newCommittee(QtWidgets.QWidget):
     def __init__(self, rollCallObj=0, presentLabelObj=...):
@@ -521,7 +503,6 @@ class rollCall(QtWidgets.QTabWidget):
                 self.setFocus()
             def keyPressEvent(self, event):
                 if type(event) == QtGui.QKeyEvent:
-                    # here accept the event and do something
                     if event.key() == QtCore.Qt.Key_P:
                         i=self.currentRow()
                         self.superobj.votes[i]='P'
@@ -530,7 +511,6 @@ class rollCall(QtWidgets.QTabWidget):
                         i=self.currentRow()
                         self.superobj.votes[i]='PV'
                         self.superobj.listVote(i)
-                    # print(event.key())
                     event.accept()
                 else:
                     event.ignore()
@@ -543,7 +523,6 @@ class rollCall(QtWidgets.QTabWidget):
         self.rvlayout.addWidget(self.votingList)
 
         self.rvlayout.addWidget(self.resetButton)
-        #self.votingList.itemClicked.connect(self.votingList.setCurrentItem)
         if self.dgListObj!=0:
             try:
                 self.delegateList.addItems(self.dgListObj.delegateList)
