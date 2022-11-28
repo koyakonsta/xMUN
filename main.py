@@ -44,7 +44,8 @@ if __name__ == '__main__':
     pv = proceduralVoting(newcommittee)                                                                      #PV init                  
     maintab.addTab(newcommittee,'New Committee')                                                             ### ADD RELEVANT TABS ### \/ \/ \/ 
     maintab.addTab(rollcall, 'Roll call')
-    # maintab.addTab(QtWidgets.QLabel('<h1><b><i><center> Not yet implemented'), 'Opening Speeches')
+    maintab.addTab(QtWidgets.QLabel('<h1><b><i><center> Not yet implemented'), 'Opening Speeches')
+    maintab.addTab(QtWidgets.QLabel('<h1><b><i><center> Not yet implemented'), 'Roll Call Voting')
     maintab.addTab(GSL, "General Speakers' List")
     maintab.addTab(MC, 'Moderated Caucus')
     maintab.addTab(UMC, 'Unmoderated Caucus')
