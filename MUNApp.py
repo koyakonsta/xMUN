@@ -14,6 +14,9 @@ else:
     countryNames=open(r'data.csv', 'r', encoding='utf-8').read().splitlines()[1:]
 flagMode = os.system('ping countryflagsapi.com') #determines method to use to retrieve flags: from cfAPI if 0 (online) else from local store
 
+class rcVoting(QtWidgets.QWidget): ...
+class openSpeech(QtWidgets.QWidget): ...
+
 class proceduralVoting(QtWidgets.QWidget):
         def __init__(self, dgListObj=0):
             super().__init__()
