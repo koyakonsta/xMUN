@@ -7,6 +7,14 @@ import io
 
 # (c) Konstantin O'Donnell-Dragović, 2022
 
+"""
+Customizable, General MUN Meetings/Conf. Management Program, flavoured for Brook Hill MUN :]
+Currently under None License (c) though you may run and use the program for nonprofit purposes, including public and group use
+
+(c) Konstantin O'Donnell-Dragović 2022
+
+"""
+
 ## reads up-to-date country names if connected, else read saved list
 if not os.system('ping pkgstore.datahub.io'):
     countryNames=[i.decode() for i in r.get(r'https://pkgstore.datahub.io/core/country-list/data_csv/data/d7c9d7cfb42cb69f4422dec222dbbaa8/data_csv.csv').content.splitlines()][1:]
