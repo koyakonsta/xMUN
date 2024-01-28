@@ -5,13 +5,11 @@ import os
 import time
 import io
 
-# (c) Konstantin O'Donnell-Dragović, 2022
-
 """
 Customizable, General MUN Meetings/Conf. Management Program, flavoured for Brook Hill MUN :]
 Currently under None License (c) though you may run and use the program for nonprofit purposes, including public and group use
 
-(c) Konstantin O'Donnell-Dragović 2022
+(c) 2022
 
 """
 
