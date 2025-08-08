@@ -7,5 +7,5 @@ MUN Meetings Management Program
 
 <h1>Installation</h1>
 - To run with Python, or from .exe, ensure all repo files are in the same directories <br>
-
+- Place desired logo in the root directory, named logo.png
 
